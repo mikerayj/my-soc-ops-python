@@ -412,3 +412,301 @@ button {
         font-size: 0.62rem;
     }
 }
+
+/* ── Variation B: Playful Event Night start screen ────────────────────────── */
+.sl-layout {
+    --sl-bg: #0e0b08;
+    --sl-surface: rgba(255, 255, 255, 0.05);
+    --sl-surface-border: rgba(245, 166, 35, 0.22);
+    --sl-brand: #f5a623;
+    --sl-brand-deep: #d97706;
+    --sl-accent: #f97316;
+    --sl-text: #faf7f0;
+    --sl-muted: #a8927a;
+    --sl-step-bg: rgba(245, 166, 35, 0.13);
+    --sl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background:
+        radial-gradient(ellipse 60% 50% at 15% 5%, rgba(245, 166, 35, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 45% at 88% 95%, rgba(249, 115, 22, 0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 35% at 75% 15%, rgba(245, 166, 35, 0.08) 0%, transparent 60%),
+        var(--sl-bg);
+    overflow: hidden;
+}
+
+.sl-layout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(245, 166, 35, 0.14) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sl-geo {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sl-geo-1 {
+    width: 340px;
+    height: 340px;
+    top: -100px;
+    right: -90px;
+    border: 2px solid rgba(245, 166, 35, 0.16);
+}
+
+.sl-geo-2 {
+    width: 220px;
+    height: 220px;
+    bottom: -70px;
+    left: -60px;
+    border: 2px solid rgba(249, 115, 22, 0.13);
+}
+
+.sl-geo-3 {
+    width: 110px;
+    height: 110px;
+    top: 40%;
+    left: -40px;
+    border: 1.5px solid rgba(245, 166, 35, 0.1);
+}
+
+.sl-card {
+    position: relative;
+    z-index: 1;
+    width: min(520px, 100%);
+    border-radius: 28px;
+    border: 1px solid var(--sl-surface-border);
+    background: linear-gradient(155deg, rgba(22, 17, 10, 0.95), rgba(14, 11, 8, 0.98));
+    box-shadow:
+        0 0 0 1px rgba(245, 166, 35, 0.06) inset,
+        0 24px 64px rgba(0, 0, 0, 0.55),
+        0 4px 16px rgba(245, 166, 35, 0.08);
+    padding: clamp(1.6rem, 5vw, 2.4rem);
+    text-align: center;
+    color: var(--sl-text);
+}
+
+/* Hero */
+.sl-hero {
+    margin-bottom: 1.6rem;
+}
+
+.sl-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sl-brand);
+    background: rgba(245, 166, 35, 0.12);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+    border-radius: 999px;
+    padding: 0.28rem 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.sl-title {
+    margin: 0 0 0.3rem;
+    font-size: clamp(2.6rem, 10vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--sl-text) 30%, var(--sl-brand) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sl-tagline {
+    margin: 0;
+    color: var(--sl-muted);
+    font-size: 0.97rem;
+}
+
+/* Journey strip */
+.sl-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: var(--sl-step-bg);
+    border: 1px solid rgba(245, 166, 35, 0.16);
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.sl-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.sl-step-num {
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: linear-gradient(140deg, var(--sl-brand), var(--sl-brand-deep));
+    color: #0e0b08;
+    font-size: 0.78rem;
+    font-weight: 800;
+    font-family: "DM Mono", monospace;
+    flex-shrink: 0;
+}
+
+.sl-step-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--sl-muted);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.sl-step-arrow {
+    font-size: 1.1rem;
+    color: rgba(245, 166, 35, 0.35);
+    flex-shrink: 0;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+/* Rules */
+.sl-rules {
+    text-align: left;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem 1.1rem 1.1rem;
+    margin-bottom: 1.3rem;
+}
+
+.sl-rules-heading {
+    margin: 0 0 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--sl-text);
+    letter-spacing: 0.02em;
+}
+
+.sl-rules-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+    color: var(--sl-muted);
+    font-size: 0.88rem;
+}
+
+.sl-rules-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.sl-rules-list li::before {
+    content: "›";
+    color: var(--sl-brand);
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1.3;
+}
+
+/* CTA */
+.sl-cta {
+    width: 100%;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--sl-brand) 0%, var(--sl-accent) 100%);
+    color: #0e0b08;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    padding: 0.95rem 1rem;
+    transition: transform 200ms var(--sl-ease), box-shadow 200ms var(--sl-ease), filter 200ms var(--sl-ease);
+    box-shadow: 0 8px 28px rgba(245, 166, 35, 0.35), 0 2px 8px rgba(249, 115, 22, 0.2);
+}
+
+.sl-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(245, 166, 35, 0.45), 0 4px 12px rgba(249, 115, 22, 0.25);
+    filter: brightness(1.05);
+}
+
+.sl-cta:active {
+    transform: translateY(0);
+}
+
+/* Staggered reveal animations */
+@keyframes sl-rise {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sl-reveal-1 { animation: sl-rise 500ms var(--sl-ease) both; }
+.sl-reveal-2 { animation: sl-rise 500ms var(--sl-ease) 80ms both; }
+.sl-reveal-3 { animation: sl-rise 500ms var(--sl-ease) 160ms both; }
+.sl-reveal-4 { animation: sl-rise 500ms var(--sl-ease) 240ms both; }
+
+@media (prefers-reduced-motion: reduce) {
+    .sl-reveal-1,
+    .sl-reveal-2,
+    .sl-reveal-3,
+    .sl-reveal-4 {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .sl-layout {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+
+    .sl-card {
+        border-radius: 22px;
+    }
+
+    .sl-steps {
+        gap: 0.3rem;
+        padding: 0.75rem 0.6rem;
+    }
+
+    .sl-step-label {
+        font-size: 0.67rem;
+    }
+
+    .sl-geo-1 {
+        width: 200px;
+        height: 200px;
+        top: -60px;
+        right: -60px;
+    }
+
+    .sl-geo-2 {
+        display: none;
+    }
+}
