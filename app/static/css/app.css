@@ -376,6 +376,301 @@ button {
     }
 }
 
+/* ================================================================
+   Variation C — Board-Game Studio Modern
+   All rules scoped to .sc-* to prevent bleed into game-screen.
+   ================================================================ */
+
+.sc-layout {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.sc-card {
+    width: min(580px, 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: sc-enter 460ms var(--anim) both;
+}
+
+/* ─── Hero ─────────────────────────────────────────────────── */
+
+.sc-hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
+    align-items: center;
+    padding: clamp(1.75rem, 5vw, 2.75rem) clamp(1.5rem, 4.5vw, 2.5rem) clamp(1.25rem, 3vw, 1.75rem);
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(15, 118, 110, 0.07), transparent 60%),
+        radial-gradient(ellipse at 100% 100%, rgba(154, 93, 20, 0.05), transparent 60%),
+        var(--surface-soft);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+
+/* subtle rule-line texture behind the hero */
+.sc-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(0, 0, 0, 0.012) 18px, rgba(0, 0, 0, 0.012) 19px),
+        repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(0, 0, 0, 0.012) 18px, rgba(0, 0, 0, 0.012) 19px);
+    pointer-events: none;
+}
+
+.sc-brand {
+    position: relative;
+    z-index: 1;
+}
+
+.sc-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 0.65rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--brand);
+    background: var(--brand-soft);
+    border: 1px solid rgba(15, 118, 110, 0.2);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+}
+
+.sc-title {
+    margin: 0 0 0.3rem;
+    font-size: clamp(2.8rem, 11vw, 4.2rem);
+    line-height: 0.93;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    animation: sc-title-in 540ms var(--anim) 60ms both;
+}
+
+.sc-tagline {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ─── Mini Board Preview ────────────────────────────────────── */
+
+.sc-board-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+    z-index: 1;
+    animation: sc-board-in 500ms var(--anim) 200ms both;
+}
+
+.sc-preview-label {
+    margin: 0;
+    font-family: "DM Mono", monospace;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.sc-mini-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    width: clamp(96px, 24vw, 128px);
+    height: clamp(96px, 24vw, 128px);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid var(--line-strong);
+    background: var(--line);
+}
+
+.sc-mb-cell {
+    background: var(--surface);
+}
+
+.sc-mb-cell.sc-mb-marked {
+    background: var(--success-soft);
+}
+
+.sc-mb-cell.sc-mb-win {
+    background: var(--win-soft);
+}
+
+.sc-mb-cell.sc-mb-free {
+    background: var(--brand-soft);
+    display: grid;
+    place-items: center;
+    font-size: 0.62rem;
+    color: var(--brand);
+    font-weight: 700;
+}
+
+/* ─── Rules Section ─────────────────────────────────────────── */
+
+.sc-rules-section {
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 4.5vw, 2.5rem);
+    border-bottom: 1px solid var(--line);
+}
+
+.sc-rules-heading {
+    margin: 0 0 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.sc-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.sc-step {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    font-size: 0.91rem;
+    color: var(--text);
+    line-height: 1.45;
+}
+
+.sc-step-num {
+    flex-shrink: 0;
+    font-family: "DM Mono", monospace;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--brand);
+    background: var(--brand-soft);
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    border-radius: 4px;
+    padding: 0.18rem 0.35rem;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+}
+
+/* ─── CTA Zone ──────────────────────────────────────────────── */
+
+.sc-cta-zone {
+    padding: clamp(1.25rem, 3.5vw, 1.75rem) clamp(1.5rem, 4.5vw, 2.5rem);
+}
+
+.sc-start-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: linear-gradient(140deg, var(--brand) 0%, var(--brand-strong) 100%);
+    color: #f0fffd;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    box-shadow: 0 10px 28px rgba(15, 118, 110, 0.28);
+    transition: transform var(--anim), box-shadow var(--anim), filter var(--anim);
+    animation: sc-cta-glow 3s ease-in-out 1200ms infinite alternate;
+}
+
+.sc-start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(15, 118, 110, 0.36);
+    filter: brightness(1.05);
+}
+
+.sc-start-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(15, 118, 110, 0.2);
+    animation: none;
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+
+@keyframes sc-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sc-title-in {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sc-board-in {
+    from {
+        opacity: 0;
+        transform: scale(0.88) rotate(-4deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes sc-cta-glow {
+    from {
+        box-shadow: 0 10px 28px rgba(15, 118, 110, 0.28);
+    }
+    to {
+        box-shadow: 0 10px 36px rgba(15, 118, 110, 0.48);
+    }
+}
+
+/* ─── Reduced-motion overrides ──────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    .sc-card,
+    .sc-title,
+    .sc-board-preview,
+    .sc-start-btn {
+        animation: none;
+    }
+
+    .sc-start-btn {
+        transition: none;
+    }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 400px) {
+    .sc-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .sc-board-preview {
+        display: none;
+    }
+}
+
+/* ================================================================ */
+
 @media (max-width: 560px) {
     .start-layout {
         padding: 1rem;

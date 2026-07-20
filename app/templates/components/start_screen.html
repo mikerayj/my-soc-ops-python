@@ -1,26 +1,81 @@
 <div id="game-container">
-<div class="start-layout">
-    <div class="start-card">
-        <p class="brand-kicker">Interactive Icebreaker</p>
-        <h1 class="brand-title">Soc Ops</h1>
-        <p class="brand-subtitle">Social Bingo</p>
+<div class="sc-layout">
+    <div class="sc-card">
 
-        <div class="rules-card">
-            <h2>How to play</h2>
-            <ul class="rules-list">
-                <li>Find people who match the questions</li>
-                <li>Tap a square when you find a match</li>
-                <li>Get 5 in a row to win!</li>
-            </ul>
+        <!-- Hero: brand identity + mini board preview -->
+        <div class="sc-hero">
+            <div class="sc-brand">
+                <p class="sc-kicker">Interactive Icebreaker</p>
+                <h1 class="sc-title">Soc Ops</h1>
+                <p class="sc-tagline">Social Bingo</p>
+            </div>
+            <!-- Decorative mini board — aria-hidden, no interaction -->
+            <div class="sc-board-preview" aria-hidden="true" role="presentation">
+                <p class="sc-preview-label">In Progress</p>
+                <div class="sc-mini-board">
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+
+                    <div class="sc-mb-cell sc-mb-win"></div>
+                    <div class="sc-mb-cell sc-mb-win"></div>
+                    <div class="sc-mb-cell sc-mb-free">★</div>
+                    <div class="sc-mb-cell sc-mb-win"></div>
+                    <div class="sc-mb-cell sc-mb-win"></div>
+
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell"></div>
+                    <div class="sc-mb-cell sc-mb-marked"></div>
+                </div>
+            </div>
         </div>
 
-        <button
-            hx-post="/start"
-            hx-target="#game-container"
-            hx-swap="outerHTML"
-            class="primary-btn">
-            Start Game
-        </button>
+        <!-- How to play steps -->
+        <div class="sc-rules-section">
+            <h2 class="sc-rules-heading">How to play</h2>
+            <ol class="sc-steps">
+                <li class="sc-step">
+                    <span class="sc-step-num">01</span>
+                    <span class="sc-step-text">Find people who match the questions</span>
+                </li>
+                <li class="sc-step">
+                    <span class="sc-step-num">02</span>
+                    <span class="sc-step-text">Tap a square when you find a match</span>
+                </li>
+                <li class="sc-step">
+                    <span class="sc-step-num">03</span>
+                    <span class="sc-step-text">Get 5 in a row to win!</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Primary CTA -->
+        <div class="sc-cta-zone">
+            <button
+                hx-post="/start"
+                hx-target="#game-container"
+                hx-swap="outerHTML"
+                class="sc-start-btn">
+                Start Game
+            </button>
+        </div>
+
     </div>
 </div>
 </div>
