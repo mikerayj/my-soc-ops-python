@@ -87,10 +87,37 @@ button {
     line-height: 1.02;
 }
 
-.brand-subtitle {
-    margin: 0.35rem 0 1.4rem;
+.brand-tagline {
+    margin: 0.3rem 0 1.1rem;
     color: var(--muted);
-    font-size: 1rem;
+    font-size: 0.93rem;
+    line-height: 1.5;
+}
+
+.highlight-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-bottom: 1.2rem;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    background: var(--brand-soft);
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    color: var(--brand-strong);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.chip-num {
+    font-family: "DM Mono", monospace;
 }
 
 .rules-card {
@@ -373,6 +400,13 @@ button {
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .start-card,
+    .bingo-modal {
+        animation: none;
     }
 }
 
